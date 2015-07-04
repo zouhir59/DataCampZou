@@ -1,19 +1,10 @@
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.base import BaseEstimator
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
-from sklearn.base import BaseEstimator
-from sklearn.decomposition import KernelPCA
-from sklearn import neighbors
-from sklearn.decomposition import PCA
-import xgboost as xgb
  
 class Regressor(BaseEstimator):
     def __init__(self):
-        self.clf = xgb.XGBRegressor(max_depth=35, n_estimators=2000, learning_rate=0.05)
- 
+        self.clf = GradientBoostingRegressor( n_estimators = 1600 , max_depth = 12 , max_features = 18)
+        
     def fit(self, X, y):
         self.clf.fit(X, y)
  
